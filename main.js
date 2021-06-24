@@ -1,4 +1,6 @@
 const app = require('./utils/app')
+const path = require('path')
+const express = require('express')
 
 const register = require('./routers/register')
 app.use('/register', register)
@@ -11,3 +13,6 @@ app.use('/comment', comment)
 
 const sgin = require('./routers/sign')
 app.use('/sign', sgin)
+
+// public
+app.use(express.static(path.join(__dirname, 'dist')))
